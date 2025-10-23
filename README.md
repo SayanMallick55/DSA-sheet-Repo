@@ -21,9 +21,9 @@ I upload each problem as I solve it — some out of passion, others out of sheer
 
 🙋‍♂️ About Me
 
-👤 Name: Sayan Mallick\n
-🎓 Role: Student, Coder & Occasional Debug Philosopher\n
-💡 Interests: Problem-solving, building tech, and pretending I understand O(n log n)\n
+👤 Name: Sayan Mallick
+🎓 Role: Student, Coder & Occasional Debug Philosopher
+💡 Interests: Problem-solving, building tech, and pretending I understand O(n log n)
 🌐 GitHub: @SayanMallick55
 
 💬 Fun Motto: “Eat. Sleep. Code. Repeat (and sometimes Cry).”
