@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Civic Connect – SIH 2025</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #0d0d0d;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #b366ff;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .tagline {
+      color: #aaa;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .form-box {
+      background: #141414;
+      padding: 30px;
+      border-radius: 15px;
+      width: 380px;
+      box-shadow: 0 0 20px rgba(179, 102, 255, 0.2);
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+    .tabs button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+      background: #1a1a1a;
+      color: #888;
+      transition: 0.3s;
+      border-radius: 8px;
+    }
+
+    .tabs button.active {
+      background: #7a2ff2;
+      color: white;
+    }
+
+    /* Role Selector */
+    .role {
+      margin: 15px 0;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .role button {
+      padding: 8px 18px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .role button.active {
+      background: #7a2ff2;
+      color: white;
+    }
+
+    .role button.inactive {
+      background: #2a2a2a;
+      color: #aaa;
+    }
+
+    /* Inputs */
+    .form-group {
+      text-align: left;
+      margin-top: 15px;
+    }
+
+    .form-group label {
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+      display: block;
+      color: #ccc;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      outline: none;
+      border-radius: 8px;
+      background: #1a1a1a;
+      color: white;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    .form-group input:focus {
+      box-shadow: 0 0 8px #7a2ff2;
+    }
+
+    /* Submit Button */
+    .submit-btn {
+      margin-top: 20px;
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      background: #7a2ff2;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      background: #9b4fff;
+      transform: translateY(-2px);
+    }
+
+    /* Error message */
+    .error {
+      margin-top: 10px;
+      color: #ff6b6b;
+      font-size: 0.85rem;
+    }
+
+    /* Hide inactive forms */
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">Civic Connect – SIH 2025</div>
+    <div class="tagline">Empowering citizens to report and resolve civic issues together.</div>
+
+    <div class="form-box">
+      <!-- Tabs -->
+      <div class="tabs">
+        <button id="signInTab" class="active">Sign In</button>
+        <button id="signUpTab">Sign Up</button>
+      </div>
+
+      <!-- Role Selector -->
+      <div class="role">
+        <button id="userBtn" class="active">User</button>
+        <button id="adminBtn" class="inactive">Admin</button>
+      </div>
+
+      <!-- Sign In Form -->
+      <form id="signInForm">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="signinEmail" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="signinPassword" placeholder="Enter your password" required>
+        </div>
+
+        <button type="submit" id="signInBtn" class="submit-btn">Sign In as User</button>
+        <div class="error" id="signInError"></div>
+      </form>
+
+      <!-- Sign Up Form -->
+      <form id="signUpForm" class="hidden">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" id="name" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="signupEmail" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+          <label>Create Password</label>
+          <input type="password" id="password" placeholder="Enter password" required>
+        </div>
+
+        <div class="form-group">
+          <label>Confirm Password</label>
+          <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+        </div>
+
+        <button type="submit" id="signUpBtn" class="submit-btn">Sign Up as User</button>
+        <div class="error" id="signUpError"></div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const signInTab = document.getElementById("signInTab");
+    const signUpTab = document.getElementById("signUpTab");
+    const signInForm = document.getElementById("signInForm");
+    const signUpForm = document.getElementById("signUpForm");
+
+    const userBtn = document.getElementById("userBtn");
+    const adminBtn = document.getElementById("adminBtn");
+
+    const signInBtn = document.getElementById("signInBtn");
+    const signUpBtn = document.getElementById("signUpBtn");
+
+    let currentRole = "User";
+
+    // Toggle Tabs
+    signInTab.addEventListener("click", () => {
+      signInTab.classList.add("active");
+      signUpTab.classList.remove("active");
+      signInForm.classList.remove("hidden");
+      signUpForm.classList.add("hidden");
+      updateButtonText();
+    });
+
+    signUpTab.addEventListener("click", () => {
+      signUpTab.classList.add("active");
+      signInTab.classList.remove("active");
+      signUpForm.classList.remove("hidden");
+      signInForm.classList.add("hidden");
+      updateButtonText();
+    });
+
+    // Toggle Roles
+    userBtn.addEventListener("click", () => {
+      currentRole = "User";
+      userBtn.classList.add("active");
+      userBtn.classList.remove("inactive");
+      adminBtn.classList.remove("active");
+      adminBtn.classList.add("inactive");
+      updateButtonText();
+    });
+
+    adminBtn.addEventListener("click", () => {
+      currentRole = "Admin";
+      adminBtn.classList.add("active");
+      adminBtn.classList.remove("inactive");
+      userBtn.classList.remove("active");
+      userBtn.classList.add("inactive");
+      updateButtonText();
+    });
+
+    function updateButtonText() {
+      if (!signInForm.classList.contains("hidden")) {
+        signInBtn.textContent = `Sign In as ${currentRole}`;
+      } else {
+        signUpBtn.textContent = `Sign Up as ${currentRole}`;
+      }
+    }
+
+    // Sign In form submit
+    signInForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = document.getElementById("signinEmail").value;
+      const password = document.getElementById("signinPassword").value;
+
+      if (!email || !password) {
+        document.getElementById("signInError").textContent = "⚠ Please fill out all fields.";
+        return;
+      }
+
+      alert(`✅ Signed In!\nRole: ${currentRole}\nEmail: ${email}`);
+    });
+
+    // Sign Up form submit
+    signUpForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("signupEmail").value.trim();
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+
+      if (!name || !email || !password || !confirmPassword) {
+        document.getElementById("signUpError").textContent = "⚠ Please fill out all fields.";
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        document.getElementById("signUpError").textContent = "⚠ Passwords do not match.";
+        return;
+      }
+
+      alert(`✅ Sign Up Successful!\nRole: ${currentRole}\nName: ${name}\nEmail: ${email}`);
+    });
+  </script>
+</body>
+</html>

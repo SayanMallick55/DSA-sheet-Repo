@@ -1,0 +1,11 @@
+Print name 5 times
+Print linearly from 1 to N 
+Print from N to 1
+Print linearly from 1 to N (Backtracking)
+Print from N to 1 (Backtracking)
+Sum of first N numbers 
+Factorial of N 
+Reverse of array 
+Check if a string is palindrome 
+Fibonacci Number 
+Fibonacci Series 
