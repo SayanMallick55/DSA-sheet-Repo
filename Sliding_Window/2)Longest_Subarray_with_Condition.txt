@@ -1,0 +1,58 @@
+Longest Subarray with Sum ≤ k
+
+Brute Force : Generate all Substring
+
+int maxlen=0;
+int n=arr.size();
+for(int i =0;i<n;i++){
+    int sum=0;
+    for(int j=i;j<n;j++){
+        sum=sum+arr[j];
+        if(sum<=k){
+            maxlen=max(maxlen,j-i+1);
+        }
+        else{
+            break;
+        }
+    }
+}
+
+
+Better : Shrinking and Expanding 
+
+int l =0;
+int r =0;
+int sum = 0;
+int maxlen =0;
+int n=arr.size();
+while(r<n){
+    sum=sum+arr[r];
+    while(sum>k){
+        sum=sum-arr[l];
+        l++;
+    }
+    if(sum<=k){
+        maxlen=max(maxlen,r-l+1);
+    }
+    r++;
+}
+
+
+OptimL :  
+
+int l =0;
+int r =0;
+int sum = 0;
+int maxlen =0;
+int n=arr.size();
+while(r<n){
+    sum=sum+arr[r];
+    if(sum>k){
+        sum=sum-arr[l];
+        l++;
+    }
+    if(sum<=k){
+        maxlen=max(maxlen,r-l+1);
+    }
+    r++;
+}
