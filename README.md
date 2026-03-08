@@ -22,7 +22,7 @@ I upload each problem as I solve it — some out of passion, others out of sheer
 🙋‍♂️ About Me
 
 👤 Name: Sayan Mallick
-🎓 Role: Student, Coder & Occasional Debug Philosopher
+🎓 Role: Student, Coder & Occasional Debuging Philosopher
 💡 Interests: Problem-solving, building tech, and pretending I understand O(n log n)
 🌐 GitHub: @SayanMallick55
 
@@ -36,3 +36,5 @@ If you spot something wrong — it’s not a bug, it’s a feature 😎
 🚀 Keep Coding!
 
 “Data Structures and Algorithms don’t get easier — you just get stronger 💪.”
+
+"Binay na maanat jaladhi jad, gaye teen din beet. Bole Ram sakop tab, bhay bin hoye na preet".
