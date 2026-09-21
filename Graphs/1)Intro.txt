@@ -1,0 +1,15 @@
+Graph is a non linear data structure ..
+
+Types : 
+    1. Directional
+    2. Unidirectional
+
+1. Cyclic : Start and end point same
+2. Non-Cyclic : Start and end point alag-alag
+   
+Total no. of degrees = 2*Edges 
+
+Graph Representation :
+    1. Adjancency Matrix
+    2. Adjancency List
+
