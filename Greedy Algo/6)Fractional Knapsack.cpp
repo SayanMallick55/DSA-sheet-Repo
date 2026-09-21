@@ -1,4 +1,9 @@
-class Solution {
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main(){
+    class Solution {
   public:
     
     struct Item{
@@ -36,3 +41,5 @@ class Solution {
         
     }
 };
+}
+
