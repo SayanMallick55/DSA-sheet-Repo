@@ -1,0 +1,22 @@
+" Those who can't remember the past are condemned to repeat it "  ~Dynamic Programming
+
+2 Methods :
+    1. Tabulation : Bottom up approach
+    2. Memoization : Top Down approach
+
+Eg. Fibonnaci Series ..
+Normal : We compute every factorial by recursion (2^n)
+DP : We compute once and store it in some data structure and uses it later (n)
+
+Used in Optimization problems..
+
+---------------------------------------------------------------------------------------------------------------------
+
+                                                Memoization
+Store the values of subproblems in a table  and uses whenever required.
+
+Recursion to DP :
+    1. Declare DP[n+1]
+    2. Store results in DP[n]
+    3. Search in DP for answers.
+
