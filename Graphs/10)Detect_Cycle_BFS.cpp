@@ -31,7 +31,7 @@ private:
 public:
     bool isCycle(int V, vector<vector<int>>& edges) {
 
-        // Convert edge list to adjacency list
+        
         vector<vector<int>> adj(V);
 
         for (auto edge : edges) {
